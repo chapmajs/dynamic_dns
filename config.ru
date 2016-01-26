@@ -9,4 +9,4 @@ set :root,        root_dir
 set :app_file,    app_file
 disable :run
 
-run SiteServices
+run DynamicDns
