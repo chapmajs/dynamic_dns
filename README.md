@@ -17,7 +17,7 @@ Keep in mind that, while cURL is great for a quick "client," your command will b
 
 ### Getting the zonefile
 
-Do a HTTP GET to `/zonefile?name=your.fqdn.com`. You can set `If-None-Match` in the request header to the version of the zone you currently have -- if there have been no updates since that serial, you'll get a `304 Not Modified`. You'll get a `200` and the zone if:
+Do a HTTP GET to `/zonefile/your.fqdn.com`. You can set `If-None-Match` in the request header to the version of the zone you currently have -- if there have been no updates since that serial, you'll get a `304 Not Modified`. You'll get a `200` and the zone if:
 
 * The serial is less than the version in the DB
 * There have been resource record updates since the last generation of the zonefile
@@ -26,11 +26,11 @@ Do a HTTP GET to `/zonefile?name=your.fqdn.com`. You can set `If-None-Match` in 
 Here's a cURL request with the zone serial:
 
 ```
-curl --header 'If-None-Match: "2016012607"' https://ddnshost.com/zonefile?name=your.fqdn.com
+curl --header 'If-None-Match: "2016012607"' https://ddnshost.com/your.fqdn.com
 ```
 
 Or, "just get the zonefile":
 
 ```
-curl https://ddnshost.com/zonefile?name=your.fqdn.com
+curl https://ddnshost.com/zonefile/your.fqdn.com
 ```
