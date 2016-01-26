@@ -1,0 +1,22 @@
+{
+    "description": "Schema for a POST to Glitchworks Dynamic DNS",
+    "type": "object",
+    "required": ["name"],
+    "properties": {
+        "name": {
+            "type": "string"
+        }
+    },
+    "patternProperties": {
+        "^[aA]$": {
+            "type": "string",
+            "format": "ipv4"
+        },
+        "^[aA]{4}$": {
+            "type": "string",
+            "format": "ipv6"
+        }
+    },
+    "additionalProperties": false,
+    "minProperties": 2
+}

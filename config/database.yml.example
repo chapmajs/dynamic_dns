@@ -1,0 +1,13 @@
+development:
+  adapter: mysql2
+  database: dynamic_dns
+  username: root
+  password: s3cre7
+  host: localhost
+
+production:
+  adapter: mysql2
+  database: dynamic_dns
+  username: root
+  password: sup3rs3cre7
+  host: localhost
