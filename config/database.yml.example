@@ -5,6 +5,13 @@ development:
   password: s3cre7
   host: localhost
 
+development:
+  adapter: mysql2
+  database: dynamic_dns_test
+  username: root
+  password: testing
+  host: localhost
+
 production:
   adapter: mysql2
   database: dynamic_dns
