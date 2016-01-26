@@ -1,10 +1,7 @@
-$:.push("./lib")  # Add /lib to the load path
-
 require 'sinatra/base'
 require 'sinatra/activerecord'
 require 'json'
 
-require 'sinatra/authentication_helper'
 require_relative 'config/app_requires'
 
 class DynamicDns < Sinatra::Base
