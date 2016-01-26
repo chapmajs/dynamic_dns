@@ -21,7 +21,7 @@ class DynamicDns < Sinatra::Base
     'Success'
   end
 
-  get '/zonefile/:name' do
+  get '/zone/:name' do
     zone = Zone.includes(:resource_records).where(:name => params[:name])
     content_type :text
 
