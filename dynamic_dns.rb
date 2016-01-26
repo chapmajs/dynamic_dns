@@ -5,8 +5,7 @@ require 'sinatra/activerecord'
 require 'json'
 
 require 'sinatra/authentication_helper'
-require_relative 'config/services'
-require_relative 'config/models'
+require_relative 'config/app_requires'
 
 class DynamicDns < Sinatra::Base
   helpers Sinatra::AuthenticationHelper
