@@ -7,6 +7,7 @@ gem 'rake'
 gem 'unicorn'
 gem 'bcrypt'
 gem 'json-schema'
+gem 'require_all'
 
 group :development do
   gem 'capistrano' 

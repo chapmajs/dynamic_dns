@@ -1,8 +1,11 @@
 require 'sinatra/base'
 require 'sinatra/activerecord'
 require 'json'
+require 'require_all'
 
-require_relative 'config/app_requires'
+require_all 'models'
+require_all 'services/**/*.rb'
+require_all 'lib/sinatra/**/*.rb'
 
 class DynamicDns < Sinatra::Base
   helpers Sinatra::AuthenticationHelper
