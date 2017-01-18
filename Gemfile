@@ -10,10 +10,12 @@ gem 'json-schema'
 gem 'require_all'
 
 group :development do
+  gem 'bcrypt_pbkdf'
   gem 'capistrano' 
   gem 'capistrano-bundler'
   gem 'capistrano3-unicorn'
   gem 'highline'
+  gem 'rbnacl-libsodium'
 end
 
 group :test do
