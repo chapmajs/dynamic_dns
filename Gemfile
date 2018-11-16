@@ -7,7 +7,7 @@ gem 'rake'
 gem 'unicorn'
 gem 'bcrypt'
 gem 'json-schema'
-gem 'require_all'
+gem 'require_all', '~> 2.0.0'
 
 group :development do
   gem 'bcrypt_pbkdf'

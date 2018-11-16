@@ -112,7 +112,7 @@ DEPENDENCIES
   rack-test
   rake
   rbnacl-libsodium
-  require_all
+  require_all (~> 2.0.0)
   rspec
   sinatra
   sinatra-activerecord
