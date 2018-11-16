@@ -13,6 +13,7 @@ group :development do
   gem 'bcrypt_pbkdf'
   gem 'capistrano' 
   gem 'capistrano-bundler'
+  gem 'capistrano-rvm'
   gem 'capistrano3-unicorn'
   gem 'ed25519'
   gem 'highline'
