@@ -4,6 +4,10 @@ require 'capistrano/setup'
 # Include default deployment tasks
 require 'capistrano/deploy'
 
+# Use Git
+require "capistrano/scm/git"
+install_plugin Capistrano::SCM::Git
+
 # Cap3 Unicorn gem
 require 'capistrano3/unicorn'
 
