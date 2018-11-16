@@ -3,6 +3,10 @@ require 'sinatra/activerecord'
 require 'json'
 require 'require_all'
 
+# Require base types, in correct order, to deal with require_all upgrade to 2.x
+require_relative 'models/resource_record.rb'
+require_relative 'models/address_record.rb'
+
 require_all 'models'
 require_all 'services/**/*.rb'
 require_all 'lib/sinatra/**/*.rb'
