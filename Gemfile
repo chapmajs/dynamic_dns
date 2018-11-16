@@ -14,6 +14,7 @@ group :development do
   gem 'capistrano' 
   gem 'capistrano-bundler'
   gem 'capistrano3-unicorn'
+  gem 'ed25519'
   gem 'highline'
   gem 'rbnacl-libsodium'
 end
