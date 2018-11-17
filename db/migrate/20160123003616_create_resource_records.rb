@@ -1,4 +1,4 @@
-class CreateResourceRecords < ActiveRecord::Migration
+class CreateResourceRecords < ActiveRecord::Migration[5.2]
   def change
     create_table :resource_records do |t|
       t.references :user

@@ -1,4 +1,3 @@
-# encoding: UTF-8
 # This file is auto-generated from the current state of the database. Instead
 # of editing this file, please use the migrations feature of Active Record to
 # incrementally modify your database, and then regenerate this schema definition.
@@ -11,33 +10,35 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160126021848) do
+ActiveRecord::Schema.define(version: 2016_01_26_021848) do
 
-  create_table "resource_records", force: :cascade do |t|
-    t.integer  "user_id",    limit: 4
-    t.integer  "zone_id",    limit: 4
-    t.string   "name",       limit: 255
-    t.integer  "ttl",        limit: 4
-    t.string   "data",       limit: 255
-    t.string   "sti_type",   limit: 255
-    t.datetime "created_at"
-    t.datetime "updated_at"
+  create_table "resource_records", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb4", force: :cascade do |t|
+    t.bigint "user_id"
+    t.bigint "zone_id"
+    t.string "name"
+    t.integer "ttl"
+    t.string "data"
+    t.string "sti_type"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["user_id"], name: "index_resource_records_on_user_id"
+    t.index ["zone_id"], name: "index_resource_records_on_zone_id"
   end
 
-  create_table "users", force: :cascade do |t|
-    t.string   "username",        limit: 255
-    t.string   "password_digest", limit: 255
-    t.datetime "created_at"
-    t.datetime "updated_at"
+  create_table "users", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb4", force: :cascade do |t|
+    t.string "username"
+    t.string "password_digest"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
-  create_table "zones", force: :cascade do |t|
-    t.string   "name",        limit: 255
-    t.integer  "serial",      limit: 4
-    t.text     "template",    limit: 65535
+  create_table "zones", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb4", force: :cascade do |t|
+    t.string "name"
+    t.integer "serial"
+    t.text "template"
     t.datetime "exported_at"
-    t.datetime "created_at"
-    t.datetime "updated_at"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
 end
