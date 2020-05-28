@@ -1,5 +1,5 @@
 # config valid only for current version of Capistrano
-lock '3.11.0'
+lock '3.14.0'
 
 set :application, 'dynamic_dns'
 set :repo_url, 'git@github.com:chapmajs/dynamic_dns.git'
