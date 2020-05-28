@@ -7,4 +7,4 @@ set :deploy_to, '/home/services/dynamic_dns'
 set :keep_releases, 2
 
 set :rvm_type, :user
-set :rvm_ruby_version, '2.3.1@dynamic_dns'
+set :rvm_ruby_version, '2.6.2@dynamic_dns'
