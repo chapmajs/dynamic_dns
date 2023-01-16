@@ -10,7 +10,7 @@ BIND compatible zone files are generated, so anything that reads BIND files can 
 POST some JSON to `/update` -- the format is documented in [the JSON schema](config/short_form_update.json). HTTP Basic Auth is required. The following cURL command will POST an update:
 
 ``` 
-curl --user user:pass -H "Content-Type: application/json" -X POST -d '{"name":"yourhost","a":"1.2.3.4","aaaa":"2001:db8:1"}' https://ddnshost.com/update
+curl --user user:pass -H "Content-Type: application/json" -X POST -d '{"name":"yourhost","a":"1.2.3.4","aaaa":"2001:db8::1"}' https://ddnshost.com/update
 ```
 
 Keep in mind that, while cURL is great for a quick "client," your command will be visible in `ps aux` to anyone else logged in to the system. We're using HTTP Basic Auth here, so you'd better be using TLS (formerly known as SSL) on your server!
