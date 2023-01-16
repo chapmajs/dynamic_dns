@@ -1,3 +1,6 @@
 *.log
 database.yml
 config/*.erb
+
+# Ignore SimpleCov coverage output
+/coverage/

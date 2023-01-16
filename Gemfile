@@ -26,4 +26,6 @@ group :test do
   gem 'rack-test'
   gem 'mocha'
   gem 'database_cleaner'
+  gem 'simplecov'
+  gem 'factory_bot'
 end
