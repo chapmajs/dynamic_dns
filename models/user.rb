@@ -3,5 +3,5 @@ class User < ActiveRecord::Base
 
   has_many :resource_records
 
-  validates :username, :presence => true, :uniqueness => true
+  validates :username, :presence => true, :uniqueness => { :case_sensitive => true }
 end
