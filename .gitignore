@@ -4,3 +4,6 @@ config/*.erb
 
 # Ignore SimpleCov coverage output
 /coverage/
+
+# Ignore editor tempfiles
+*~
