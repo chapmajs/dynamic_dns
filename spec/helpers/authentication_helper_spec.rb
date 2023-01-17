@@ -1,4 +1,4 @@
-require_relative '../../lib/sinatra/authentication_helper'
+require 'spec_helper'
 
 class TestAuthHelper
   include Sinatra::AuthenticationHelper

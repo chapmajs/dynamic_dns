@@ -1,3 +1,5 @@
+require 'spec_helper'
+
 RSpec.describe 'Zone' do
   let!(:now) { Time.now }
   let!(:zone) { Zone.new(:name => 'example.com', :serial => "#{now.strftime("%Y%m%d")}00".to_i) }
