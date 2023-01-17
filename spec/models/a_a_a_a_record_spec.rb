@@ -1,3 +1,5 @@
+require 'spec_helper'
+
 RSpec.describe 'AAAARecord' do
   let(:aaaa_record) { AAAARecord.new(:name => 'v6testhost', :ttl => 300, :data => '2001:DB8:1::1') }
 
