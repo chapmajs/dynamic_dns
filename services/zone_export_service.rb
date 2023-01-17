@@ -1,8 +1,9 @@
 class ZoneExportService
-  attr_writer :zone
+  attr_writer :template, :zone
 
   def initialize
     @header_comments = []
+    @template = nil
   end
 
   def execute
@@ -19,7 +20,7 @@ class ZoneExportService
   private
 
   def load_template
-    @template = open('config/bv.theglitchworks.net.erb').read
+    @template ||= open('config/bv.theglitchworks.net.erb').read
   end
 
   def calculate_column_widths
