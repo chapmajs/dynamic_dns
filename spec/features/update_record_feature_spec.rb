@@ -19,6 +19,7 @@ RSpec.describe 'Update record', :type => :feature do
       end
 
       it { expect(last_response.status).to eq 401 }
+      it { expect(last_response.content_type).to start_with 'text/plain' }
       it { expect(last_response.body).to eq "Not authorized\n" }
     end
 
@@ -29,6 +30,7 @@ RSpec.describe 'Update record', :type => :feature do
       end
 
       it { expect(last_response.status).to eq 401 }
+      it { expect(last_response.content_type).to start_with 'text/plain' }
       it { expect(last_response.body).to eq "Not authorized\n" }
     end
 
@@ -39,6 +41,7 @@ RSpec.describe 'Update record', :type => :feature do
       end
 
       it { expect(last_response.status).to eq 200 }
+      it { expect(last_response.content_type).to start_with 'text/plain' }
       it { expect(last_response.body).to eq 'Success' }
       it { expect(ARecord.count).to eq 1 }
       it { expect(ARecord.first.data).to eq '1.2.3.5' }
@@ -56,58 +59,7 @@ RSpec.describe 'Update record', :type => :feature do
     end
 
     it { expect(last_response.status).to eq 422 }
+    it { expect(last_response.content_type).to start_with 'text/plain' }
     it { expect(last_response.body).to eq 'Unprocessable JSON entity' }
-  end
-end
-
-
-
-__END__
-
-  let!(:foo_sitewide_counter) { FactoryBot.create(:sitewide_counter, :name => 'foo', :ipv4_preload => 42) }
-  let!(:bar_counter) { FactoryBot.create(:counter_with_hits, :name => 'bar') }
-
-  describe 'when getting a nonexistent Counter' do
-
-    before(:each) do
-      get '/counters/baz'
-    end
-
-    it { expect(last_response.status).to eq 404 }
-    it { expect(last_response.body).to be_empty }
-  end
-
-  describe 'when getting a regular Counter' do
-
-    before(:each) do
-      get '/counters/bar'
-    end
-
-    it { expect(last_response.status).to eq 200 }
-    it { expect(last_response.content_type).to eq 'application/javascript;charset=utf-8' }
-    it { expect(last_response.body).to eq "document.write('000003');" }
-  end
-
-  describe 'when getting a regular Counter IPv6 count' do
-
-    before(:each) do
-      get '/counters/bar?ipv6=true'
-    end
-
-    it { expect(last_response.status).to eq 200 }
-
-    it { expect(last_response.content_type).to eq 'application/javascript;charset=utf-8' }
-    it { expect(last_response.body).to eq "document.write('000003 (000001 on IPv6)');" }
-  end
-
-  describe 'when getting a Sitewide Counter' do
-
-    before(:each) do
-      get '/counters/foo'
-    end
-
-    it { expect(last_response.status).to eq 200 }
-    it { expect(last_response.content_type).to eq 'application/javascript;charset=utf-8' }
-    it { expect(last_response.body).to eq "document.write('000045');" }
   end
 end

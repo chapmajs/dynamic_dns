@@ -3,15 +3,28 @@ require 'spec_helper'
 class TestAuthHelper
   include Sinatra::AuthenticationHelper
 
+  CONTENT_TYPES = {
+    :text => 'text/plain'
+  }
+
   attr_accessor :headers, :status_code, :status_message
 
   def initialize
     @headers = {}
+    @content_type = 'text/html'
   end
 
   def halt(code, message)
     @status_code = code
     @status_message = message
+  end
+
+  def content_type(type)
+    @content_type = CONTENT_TYPES[type]
+  end
+
+  def get_content_type
+    @content_type
   end
 end
 
@@ -30,6 +43,7 @@ RSpec.describe 'AuthenticationHelper' do
     end
 
     it { expect(auth_helper.status_code).to eq 401 }
+    it { expect(auth_helper.get_content_type).to start_with 'text/plain' }
     it { expect(auth_helper.status_message).to eq "Not authorized\n" }
     it { expect(auth_helper.headers['WWW-Authenticate']).to eq 'Basic realm="Restricted Area"' }
   end
@@ -54,6 +68,7 @@ RSpec.describe 'AuthenticationHelper' do
       end
 
       it { expect(auth_helper.status_code).to eq 401 }
+      it { expect(auth_helper.get_content_type).to start_with 'text/plain' }
       it { expect(auth_helper.status_message).to eq "Not authorized\n" }
       it { expect(auth_helper.headers['WWW-Authenticate']).to eq 'Basic realm="Restricted Area"' }
     end
@@ -75,6 +90,7 @@ RSpec.describe 'AuthenticationHelper' do
         end
 
         it { expect(auth_helper.status_code).to eq 401 }
+        it { expect(auth_helper.get_content_type).to start_with 'text/plain' }
         it { expect(auth_helper.status_message).to eq "Not authorized\n" }
         it { expect(auth_helper.headers['WWW-Authenticate']).to eq 'Basic realm="Restricted Area"' }
       end

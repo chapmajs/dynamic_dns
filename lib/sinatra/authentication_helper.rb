@@ -6,6 +6,7 @@ module Sinatra
       user = authenticate_user_by_basic_authentication
       return user if user
       
+      content_type :text
       headers['WWW-Authenticate'] = 'Basic realm="Restricted Area"'
       halt(401, "Not authorized\n")
     end
