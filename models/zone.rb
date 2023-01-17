@@ -1,8 +1,7 @@
 class Zone < ActiveRecord::Base
   has_many :resource_records
 
-  validates :name, :presence => true, :uniqueness => true
-  # validates :template, :presence => true
+  validates :name, :presence => true, :uniqueness => { :case_sensitive => false }
 
   def update_serial
     if Time.now.to_date == serial_date

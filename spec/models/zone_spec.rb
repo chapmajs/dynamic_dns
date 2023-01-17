@@ -1,8 +1,11 @@
 require 'spec_helper'
 
-RSpec.describe 'Zone' do
+RSpec.describe Zone, :type => :model do
   let!(:now) { Time.now }
-  let!(:zone) { Zone.new(:name => 'example.com', :serial => "#{now.strftime("%Y%m%d")}00".to_i) }
+  let!(:zone) { FactoryBot.create(:zone) }
+
+  it { is_expected.to validate_presence_of :name }
+  it { is_expected.to validate_uniqueness_of(:name).case_insensitive }
 
   context 'when updating the serial number' do
     it 'should increment by one when exported_at is today' do
