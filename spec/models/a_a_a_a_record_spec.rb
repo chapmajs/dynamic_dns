@@ -1,7 +1,7 @@
 require 'spec_helper'
 
 RSpec.describe 'AAAARecord' do
-  let(:aaaa_record) { FactoryBot.build(:a_a_a_a_record, :data => '2001:db8:1::1234') }
+  let(:aaaa_record) { FactoryBot.build(:aaaa_record, :data => '2001:db8:1::1234') }
 
   it { expect(aaaa_record.type).to eq 'AAAA' }
   it { expect(aaaa_record.data).to eq '2001:db8:1::1234' }

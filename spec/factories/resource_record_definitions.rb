@@ -6,7 +6,7 @@ FactoryBot.define do
     ttl { 300 }
   end
 
-  factory :a_a_a_a_record do
+  factory :aaaa_record, :class => AAAARecord do
     sequence(:name) { |n| "host#{n}.example.com" }
     sequence(:data) { |n| "2001:db8:1::#{n}" }
     ttl { 300 }
