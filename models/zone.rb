@@ -1,5 +1,7 @@
 class Zone < ActiveRecord::Base
   has_many :resource_records
+  has_many :a_records
+  has_many :a_a_a_a_records
 
   validates :name, :presence => true, :uniqueness => { :case_sensitive => false }
 
