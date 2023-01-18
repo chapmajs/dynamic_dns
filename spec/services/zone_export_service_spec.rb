@@ -5,13 +5,12 @@ RSpec.describe 'ZoneExportService' do
 
   describe 'generate a zone for given ResourceRecords' do
     let(:test_template) { open('spec/support/test_template.erb').read }
-    let(:test_zone) { FactoryBot.create(:zone_with_records) }
+    let(:test_zone) { FactoryBot.create(:zone_with_records, :template => test_template) }
     let(:a_record) { test_zone.resource_records.where(:sti_type => 'ARecord').first }
     let(:aaaa_record) { test_zone.resource_records.where(:sti_type => 'AAAARecord').first }
     let(:results) { service.execute }
 
     before(:each) do
-      service.template = test_template
       service.zone = test_zone
     end
 
