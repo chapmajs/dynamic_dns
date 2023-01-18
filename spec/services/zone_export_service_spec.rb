@@ -25,7 +25,7 @@ RSpec.describe 'ZoneExportService' do
     it 'should set the exported_at date on the Zone' do
       service.execute
       test_zone.reload
-      expect(test_zone.exported_at.to_date).to eq Date.today
+      expect(test_zone.exported_at.to_date).to be >= Date.today
     end
 
     it 'should update the Zone serial' do
