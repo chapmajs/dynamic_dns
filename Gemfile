@@ -29,4 +29,5 @@ group :test do
   gem 'simplecov'
   gem 'factory_bot'
   gem 'shoulda-matchers'
+  gem 'timecop'
 end
