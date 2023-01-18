@@ -8,8 +8,8 @@ FactoryBot.define do
   factory :zone_with_records, :parent => :zone do
 
     after(:create) do |z|
-      FactoryBot.create(:a_record, :zone_id => z.id)
-      FactoryBot.create(:a_a_a_a_record, :zone_id => z.id)
+      FactoryBot.create(:a_record, :zone => z)
+      FactoryBot.create(:aaaa_record, :zone => z)
     end
   end
 end
