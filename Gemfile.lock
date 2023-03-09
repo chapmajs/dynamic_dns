@@ -59,7 +59,7 @@ GEM
       net-ssh (>= 2.6.5, < 8.0.0)
     net-ssh (7.0.1)
     public_suffix (5.0.1)
-    rack (2.2.6.2)
+    rack (2.2.6.3)
     rack-protection (3.0.5)
       rack
     rack-test (2.0.2)
