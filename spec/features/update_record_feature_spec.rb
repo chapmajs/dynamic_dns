@@ -37,7 +37,7 @@ RSpec.describe 'Update record', :type => :feature do
     describe 'and valid auth credentials' do
       before(:each) do
         authorize valid_user.username, 'testing'
-        post 'update', valid_json
+        post 'update', valid_json, 'CONTENT_TYPE' => 'application/json'
       end
 
       it { expect(last_response.status).to eq 200 }
